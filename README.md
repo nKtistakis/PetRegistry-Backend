@@ -1,6 +1,8 @@
 
 # A Dockerized REST-API Server implemented with Spring together with a MySQL Database
 
+Main branch installation guide is provided below. Branches ansble/docker/kubernetes-deploy support deploying the whole project(backend+frontend) through the DevOps repo of the project at: [PetRegistry-DevOps](h) "PetRegistry-DevOps". Follow repo's instructions to implement automation.
+
 ## Installation Guide
 
 # A REST-API Server implemented with Spring
@@ -12,7 +14,7 @@
 
 - #### Run the following command in the command line, for the MySQL database docker container to be created:
 
-   - `docker run --name mysqldb -v mysqldbvol:/var/lib/mysql -p 3306:3306 -e MYSQL_USER=user0 -e MYSQL_PASSWORD=changeit -e MYSQL_DATABASE=dsDb0 -e MYSQL_ROOT_PASSWORD=pass123 -d mysql/mysql-server:latest`
+   - `docker run --name mysqldb -v mysqldbvol:/var/lib/mysql -p 3306:3306 -e MYSQL_USER=user0 -e MYSQL_PASSWORD=changeit -e MYSQL_DATABASE=dsDb0 -e MYSQL_ROOT_PASSWORD=pass123 -d mysql/mysql-server:latest` 
 
 ### Step 2
 #### 1. Make sure that you have *Java Version 17* and *Maven* installed in your machine and in your path
