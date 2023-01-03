@@ -1,5 +1,5 @@
 
-# A Dockerized REST-API Server implemented with Spring together with a MySQL Database
+# A Dockerized REST-API Server implemented with Spring together with a MySQL Database served with a React Frontend
 
 ## Installation Guide
 
@@ -16,4 +16,4 @@ Open a terminal in the project directory and run the following command:
 ### To see the logs:
 `docker-compose logs -f`
 
-### Congratulations!! The server is up and running at: -> http://localhost:8080
+### Congratulations!! The server is up and running at: -> http://localhost:8080 and the frontend is served through an Nginx server on http://localhost

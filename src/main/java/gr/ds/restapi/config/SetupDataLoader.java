@@ -21,7 +21,7 @@ import java.util.List;
 public class SetupDataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
     boolean isSetup = false;
-
+//s
     @Autowired
     EntityDAO<Admin> adminDAO;
     @Autowired
