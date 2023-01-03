@@ -94,13 +94,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         final CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.setAllowedOriginPatterns(Collections.singletonList("http://localhost:3000"));
+	config.setAllowedOriginPatterns(Arrays.asList("https://pet-registry.apps.cloudns.ph", "https://admin2-registry.apps.cloudns.ph"));
+	//config.setAllowedOriginPatterns(Collections.singletonList("https://admin-registry.apps.cloudns.ph"));
         config.setAllowedHeaders(Arrays.asList("Authorization","Origin", "Content-Type", "Accept", "X-Custom-Header", "X-Requested-With"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "OPTIONS", "DELETE", "PATCH"));
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
-
+//ss
 
 
 }
