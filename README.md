@@ -3,6 +3,8 @@
 
 # Installation Guide
 
+## How to deploy backend and a MySQL database
+
 ## How to install in a Docker environment
 
 ### Step 1
