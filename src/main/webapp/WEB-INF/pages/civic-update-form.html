@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <meta charset="UTF-8">
+    <title>Update Civic Official</title>
+</head>
+<body>
+<h1>Civic Official Data</h1>
+<form id="form-box" action="#" th:action="@{/api/root/users/update-civic/{code}(code = civic.code)}" th:object="${civic}" method="post">
+    <p hidden>Id: <textarea th:field="${civic.id}" th:value="${civic.getId()}"/></p>
+    <p hidden>Code: <input type="number" th:field="${civic.code}" th:value="${civic.getCode()}"/></p>
+    <label>Username: <input type="text" th:field="${civic.username}" th:value="${civic.getUsername()}"/></label>
+    <label>Passcode: <input type="text" th:field="${civic.passcode}" th:value="${civic.getPasscode()}"/></label>
+    <label>Full Name: <input type="text" th:field="${civic.fullName}" th:value="${civic.getFullName()}"/></label>
+    <label>Region: <input type="text" th:field="${civic.region}" th:value="${civic.getRegion()}"/></label>
+    <label>Enabled: <input type="checkbox" th:field="${civic.enabled}" th:value="${civic.getEnabled()}"/></label>
+    <span th:if="${#fields.hasErrors()}">There were some errors in this form</span>
+
+    <label><input type="submit" value="Update" /> <input type="reset" value="Reset" /></label>
+</form>
+</body>
+</html>

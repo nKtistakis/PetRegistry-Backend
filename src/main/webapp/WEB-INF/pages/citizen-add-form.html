@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <meta charset="UTF-8">
+    <title>Add new citizen</title>
+</head>
+<body>
+<h1>Citizen Data</h1>
+
+<form id = "form-box" action="#" th:action="@{/api/root/users/add-citizen}" th:object="${citizen}" method="post">
+
+    <label>Code <input id="code" type="number" th:field="*{code}"/></label>
+    <label>Username <input id="username" type="text" th:field="*{username}"/></label>
+    <label>Passcode <input id="passcode" type="text" th:field="*{passcode}" /></label>
+    <label>Full name <input id="name" type="text" th:field="*{fullName}" /></label>
+    <label>Region <input id="region" type="text" th:field="*{region}" /></label>
+    <label>Address <input id="address" type="text" th:field="*{address}" /></label>
+    <label>Phone number <input id="phone" type="number" th:field="*{phoneNumber}" /></label>
+    <label>Email <input id="email" type="text" th:field="*{email}" /></label>
+    <label>Enabled <input id="enabled" type="checkbox" th:field="${citizen.enabled}" checked="0"/></label>
+    <span th:if="${#fields.hasErrors()}">There were some errors in this form</span>
+    <input type="submit" value="Add" />
+    <input type="reset" value="Reset" />
+
+</form>
+
+
+
+</body>
+</html>

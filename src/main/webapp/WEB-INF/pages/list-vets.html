@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+    <li><a th:href="@{/api/root/home}">Home</a></li>
+    <li><a th:href="@{/api/root/home/citizens}">Citizens</a></li>
+    <li><a class="active" th:href="@{/api/root/home/vets}">Vets</a></li>
+    <li><a th:href="@{/api/root/home/civics}">Civics</a></li>
+    <li><a th:href="@{/logout}">Logout</a></li>
+</ul>
+
+
+<div id="container">
+    <div id="content">
+        <!--  add our html table here -->
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Passcode</th>
+                <th>Code</th>
+                <th>Full Name</th>
+                <th>Veterinary Name</th>
+                <th>Actions</th>
+            </tr>
+
+            <tr th:each="vet, stat: ${vets}">
+                <form action="#"  th:object="${vet}" method="get">
+                    <td th:text="${vet.id}"></td>
+                    <td th:text="${vet.username}"></td>
+                    <td th:text="${vet.passcode}"></td>
+                    <td th:text="${vet.code}"></td>
+                    <td th:text="${vet.fullName}"></td>
+                    <td th:text="${vet.name}"></td>
+                    <td><input class = "table-button" type="submit" value="Update" th:formaction="'/api/root/users/update-vet/' + ${vet.code}" />
+                        <input class = "table-button" type="submit" value="Delete" th:formaction="'/api/root/users/delete/' + ${vet.username}" /></td>
+                </form>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

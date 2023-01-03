@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <meta charset="UTF-8">
+    <title>Update Citizen</title>
+</head>
+<body>
+<h1>Citizen Data</h1>
+<form id="form-box" action="#" th:action="@{/api/root/users/update-citizen/{code}(code = citizen.code)}" th:object="${citizen}" method="post">
+    <p hidden>Id: <textarea th:field="${citizen.id}" th:value="${citizen.getId()}"/></p>
+    <p hidden>Code: <input type="number" th:field="${citizen.code}" th:value="${citizen.getCode()}"/></p>
+    <label>Username: <input type="text" th:field="${citizen.username}" th:value="${citizen.getUsername()}"/></label>
+    <label>Passcode: <input type="text" th:field="${citizen.passcode}" th:value="${citizen.getPasscode()}"/></label>
+    <label>Full Name: <input type="text" th:field="${citizen.fullName}" th:value="${citizen.getFullName()}"/></label>
+    <label>Region: <input type="text" th:field="${citizen.region}" th:value="${citizen.getRegion()}"/></label>
+    <label>Address: <input type="text" th:field="${citizen.address}" th:value="${citizen.getAddress()}"/></label>
+    <label>Phone Number: <input type="number" th:field="${citizen.phoneNumber}" th:value="${citizen.getPhoneNumber()}"/></label>
+    <label>Email: <input type="text" th:field="${citizen.email}" th:value="${citizen.getEmail()}"/></label>
+    <label>Enabled: <input type="checkbox" th:field="${citizen.enabled}" th:value="${citizen.getEnabled()}"/></label>
+    <span th:if="${#fields.hasErrors()}">There were some errors in this form</span>
+    <label><input type="submit" value="Update" /> <input type="reset" value="Reset" /></label>
+</form>
+</body>
+</html>

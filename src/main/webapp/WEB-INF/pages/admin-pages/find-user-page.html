@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <meta charset="UTF-8">
+    <title>Find User</title>
+</head>
+<body>
+
+<ul>
+    <li><a th:href="@{/api/root/home}">Home</a></li>
+    <li><a th:href="@{/api/root/home/citizens}">Citizens</a></li>
+    <li><a th:href="@{/api/root/home/vets}">Vets</a></li>
+    <li><a th:href="@{/api/root/home/civics}">Civics</a></li>
+    <li><a class="active" th:href="@{/api/root/home/users}">Users</a></li>
+    <li><a th:href="@{/logout}">Logout</a></li>
+</ul>
+
+    <script>
+        function searchUser(){
+            const username = document.getElementById("usernameInput").value;
+            if (username === ""){
+                alert("Username cannot be nothing");
+                return 0;
+            }
+            window.location="/api/root/users/" + username;
+            return 0;
+        }
+    </script>
+
+    <div id="center-div">
+        <label for="usernameInput"></label><input id="usernameInput" type="text" th:placeholder="'username'"/>
+        <button class="table-button" onclick="searchUser()">Search</button>
+    </div>
+
+</body>
+</html>

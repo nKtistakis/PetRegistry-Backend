@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <meta charset="UTF-8">
+    <title>Update Vet</title>
+</head>
+<body>
+<h1>Vet Data</h1>
+<form id="form-box" action="#" th:action="@{/api/root/users/update-vet/{code}(code = vet.code)}" th:object="${vet}" method="post">
+    <p hidden>Id: <textarea th:field="${vet.id}" th:value="${vet.getId()}"/></p>
+    <p hidden>Code: <input type="number" th:field="${vet.code}" th:value="${vet.getCode()}"/></p>
+    <label>Username: <input type="text" th:field="${vet.username}" th:value="${vet.getUsername()}"/></label>
+    <label>Passcode: <input type="text" th:field="${vet.passcode}" th:value="${vet.getPasscode()}"/></label>
+    <label>Full Name: <input type="text" th:field="${vet.fullName}" th:value="${vet.getFullName()}"/></label>
+    <label>Veterinary Name: <input type="text" th:field="${vet.name}" th:value="${vet.getName()}"/></label>
+    <label>Region: <input type="text" th:field="${vet.region}" th:value="${vet.getRegion()}"/></label>
+    <label>Enabled: <input type="checkbox" th:field="${vet.enabled}" th:value="${vet.getEnabled()}"/></label>
+    <span th:if="${#fields.hasErrors()}">There were some errors in this form</span>
+
+    <label><input type="submit" value="Update" /> <input type="reset" value="Reset" /></label>
+</form>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+    <li><a th:href="@{/api/root/home}">Home</a></li>
+    <li><a th:href="@{/api/root/home/citizens}">Citizens</a></li>
+    <li><a th:href="@{/api/root/home/vets}">Vets</a></li>
+    <li><a th:href="@{/api/root/home/civics}">Civics</a></li>
+    <li><a class="active" th:href="@{/api/root/home/users}">Users</a></li>
+    <li><a th:href="@{/logout}">Logout</a></li>
+</ul>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Passcode</th>
+        <th>Full Name</th>
+        <th>Region</th>
+        <th>Enabled</th>
+        <th>Actions</th>
+
+    </tr>
+
+    <tr th:each="user, stat: ${users}">
+        <form action="#" th:object="${user}" method="get">
+            <td th:text = "${user.id}" ></td>
+            <td th:text = "${user.username}" ></td>
+            <td th:text = "${user.passcode}" ></td>
+            <td th:text = "${user.fullName}" ></td>
+            <td th:text = "${user.region}" ></td>
+            <td th:text = "${user.enabled}" ></td>
+            <td>
+                <input class="table-button" type="submit" value="Update" th:formaction="'/api/root/users/update/' + ${user.username}"/>
+                <input class="table-button" type="submit" value="Delete" th:formaction="'/api/root/users/delete/' + ${user.username}"/>
+            </td>
+        </form>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <meta charset="UTF-8">
+    <title>Add new Civic Official</title>
+</head>
+<body>
+<h1>Civic Official Data</h1>
+
+
+<form id="form-box" action="#" th:action="@{/api/root/users/add-civic}" th:object="${civic}" method="post">
+
+    <label>Code <input type="number" th:field="${civic.code}" /></label>
+    <label>Username <input type="text" th:field="${civic.username}" /></label>
+    <label>Passcode <input type="text" th:field="${civic.passcode}" /></label>
+    <label>Full Name <input type="text" th:field="${civic.fullName}" /></label>
+    <label>Region <input type="text" th:field="${civic.region}" /></label>
+    <label>Enabled <input type="checkbox" th:field="${civic.enabled}" checked="0"/></label>
+    <span th:if="${#fields.hasErrors()}">There were some errors in this form</span>
+    <input type="submit" value="Add" />
+    <input type="reset" value="Reset" />
+
+</form>
+
+
+
+</body>
+</html>

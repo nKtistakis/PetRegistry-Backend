@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <meta charset="UTF-8">
+    <title>Update User</title>
+</head>
+<body>
+<h1>Citizen Data</h1>
+<form id="form-box" action="#" th:action="@{/api/root/users/update/{username}(username = ${user.username})}" th:object="${user}" method="post">
+    <p hidden>Id:<input type="text" th:field="${user.id}" th:value="${user.getId()}"/></p>
+    <label>Username: <input type="text" th:field="${user.username}" th:value="${user.getUsername()}"/></label>
+    <label>Passcode: <input type="text" th:field="${user.passcode}" th:value="${user.getPasscode()}"/></label>
+    <label>Full Name: <input type="text" th:field="${user.fullName}" th:value="${user.getFullName()}"/></label>
+    <label>Region: <input type="text" th:field="${user.region}" th:value="${user.getRegion()}"/></label>
+    <label>Enabled: <input type="checkbox" th:field="${user.enabled}" th:value="${user.getEnabled()}"/></label>
+    <span th:if="${#fields.hasErrors()}">There were some errors in this form</span>
+
+    <input type="submit" value="Update" />
+    <input type="reset" value="Reset" />
+</form>
+</body>
+</html>

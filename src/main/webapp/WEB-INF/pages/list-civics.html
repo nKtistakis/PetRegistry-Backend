@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <meta charset="UTF-8">
+    <title>Civic Officials List</title>
+</head>
+<body>
+
+<ul>
+    <li><a th:href="@{/api/root/home}">Home</a></li>
+    <li><a th:href="@{/api/root/home/citizens}">Citizens</a></li>
+    <li><a th:href="@{/api/root/home/vets}">Vets</a></li>
+    <li><a class="active" th:href="@{/api/root/home/civics}">Civics</a></li>
+    <li><a th:href="@{/logout}">Logout</a></li>
+</ul>
+
+<div id="container">
+    <div id="content">
+        <!--  add our html table here -->
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Passcode</th>
+                <th>Code</th>
+                <th>Actions</th>
+            </tr>
+
+            <tr th:each="civic, stat: ${civics}">
+                <form action="#"  th:object="${civic}" method="get">
+                    <td th:text="${civic.id}"></td>
+                    <td th:text="${civic.username}"></td>
+                    <td th:text="${civic.passcode}"></td>
+                    <td th:text="${civic.code}"></td>
+                    <td><input class = "table-button" type="submit" value="Update" th:formaction="'/api/root/users/update-civic/' + ${civic.code}" />
+                        <input class = "table-button" type="submit" value="Delete" th:formaction="'/api/root/users/delete/' + ${civic.username}" /></td>
+                </form>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="container">
+    <div id="content">
+        <!--  add our html table here -->
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Passcode</th>
+                <th>Full Name</th>
+                <th>Region</th>
+                <th>Enabled</th>
+                <th>Actions</th>
+
+            </tr>
+
+            <tr th:object="${user}">
+                <form action="#" th:object="${user}">
+                <td th:text = "${user.id}" ></td>
+                <td th:text = "${user.username}" ></td>
+                <td th:text = "${user.passcode}" ></td>
+                <td th:text = "${user.fullName}" ></td>
+                <td th:text = "${user.region}" ></td>
+                <td th:text = "${user.enabled}" ></td>
+                <td>
+                    <input class="table-button" type="submit" value="Update" th:formaction="'/api/root/users/update/' + ${user.username}"/>
+                    <input class="table-button" type="submit" value="Delete" th:formaction="'/api/root/users/delete/' + ${user.username}"/>
+                </td>
+
+                </form>
+            </tr>
+
+
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

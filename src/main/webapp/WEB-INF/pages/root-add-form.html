@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new Root</title>
+</head>
+<body>
+<h1>Root Data</h1>
+<form action="#" th:action="@{/api/root/users/add-root}" th:object="${root}" method="post">
+    <p hidden>Id: <input type="number" th:field="${root.id}" /></p>
+    <p>Username: <input type="text" th:field="${root.username}" /></p>
+    <p>Passcode: <input type="text" th:field="${root.passcode}" /></p>
+    <p>Full Name: <input type="text" th:field="${root.fullName}" /></p>
+    <p>Region: <input type="text" th:field="${root.region}" /></p>
+    <p>Enabled: <input type="checkbox" th:field="${root.enabled}" checked="0"/></p>
+    <p><input type="submit" value="Add" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>

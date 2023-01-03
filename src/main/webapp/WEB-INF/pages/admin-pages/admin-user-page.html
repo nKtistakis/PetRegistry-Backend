@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+
+<ul>
+    <li><a th:href="@{/api/root/home}">Home</a></li>
+    <li><a th:href="@{/api/root/home/citizens}">Citizens</a></li>
+    <li><a th:href="@{/api/root/home/vets}">Vets</a></li>
+    <li><a th:href="@{/api/root/home/civics}">Civics</a></li>
+    <li><a class="active" th:href="@{/api/root/home/users}">Users</a></li>
+    <li><a th:href="@{/logout}">Logout</a></li>
+</ul>
+
+<div aria-orientation="vertical">
+
+    <form action="#" method="get" >
+        <table>
+            <tr>
+                <td>
+                    <input  type = "submit" value = "Find User" th:formaction = "'/api/root/users/find'"/>
+                    <input type = "submit" value = "Show Users" th:formaction = "'/api/root/users/all'"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</div>
+
+</body>
+</html>
