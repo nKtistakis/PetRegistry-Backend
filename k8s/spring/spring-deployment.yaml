@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: spring
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: spring
+  
+  template:
+    metadata:
+      labels:
+        component: spring
+    spec:
+      containers:
+        - name: spring
+          image: brightdeanz/devops-spring-server
+          ports:
+            - containerPort: 8080
+              hostPort: 8080
+          
+          env:
+            - name: SPRING_APPLICATION_JSON
+              valueFrom:
+                configMapKeyRef:
+                  name: spring-config
+                  key: config.json
+          
+          imagePullPolicy: Always

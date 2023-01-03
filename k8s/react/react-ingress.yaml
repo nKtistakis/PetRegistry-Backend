@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: react-ingress
+  annotations:
+    
+spec:
+
+  tls:
+    - hosts:
+      - pet-registry.apps.cloudns.ph
+      secretName: react-tls-secret
+  rules:
+    - host: pet-registry.apps.cloudns.ph
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: react-clip
+              port:
+                number: 3000
+  ingressClassName: nginx

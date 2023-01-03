@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: spring-ingress
+spec:
+
+  tls:
+    - hosts:
+      - admin2-registry.apps.cloudns.ph
+      secretName: spring-tls-secret
+  rules:
+    - host: admin2-registry.apps.cloudns.ph
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: spring-clip
+              port:
+                number: 8080
+  ingressClassName: nginx
